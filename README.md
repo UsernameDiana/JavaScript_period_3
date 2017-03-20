@@ -54,18 +54,19 @@ var Tank = mongoose.model('Tank', schema);
 Documents are instances of our model. Creating them and saving to the database is easy
 
 #### Explain, and demonstrate, using relevant examples, the strategy for querying MongoDB (all CRUD operations).
-Instert:
+```javascript
+//Instert:
 db.persons.insert({"name" : "Lars Mortensen", "position" : "Teacher"});
-Find:
+//Find:
 db.products.find({email: “me@gmail.com” });
-Update:
+//Update:
 db.collection.update( { "_id.name": "Robert Frost", "_id.uid": 0 },
    { "categories": ["poet", "playwright"] },
    { upsert: true } );
-Remove:
+//Remove:
 db.products.remove({ quantity: { $gt: 20 } },
     { writeConcern: { w: "majority", wtimeout: 5000 } });
-
+```j
 #### Explain about indexes in MongoDB, how to create them, and demonstrate how you have used them.
 Indexes helps optimizing queries. A 2dsphere index supports queries that calculate geometries on an earth-like sphere (coordinates). 2dsphere index supports all MongoDB geospatial queries: queries for inclusion, intersection and proximity.
 You can use it for a mobile app, where you can update a map with all Your friends location online, based on their indexes(using them as 2-D spheres).
