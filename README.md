@@ -31,7 +31,7 @@ MongoDB is a documentDB, MongoDB stores all data in documents, that are stored i
 
 #### Explain reasons to add a layer like Mongoose, on top on of a schema-less database like MongoDB.
 Mongoose is an object modeling tool for MongoDB and Node.js, somehow similar to a ORM tool. Mongoose provides a straight-forward, schema-based solution to modeling your application data. Includes: schemas, type casting (String, boolean, etc), validation, query build-in, domain logic (middleware).
-
+```javascript
 var mongoose = require( 'mongoose' ),
 ....
 var userSchema = new mongoose.Schema({
@@ -45,12 +45,12 @@ var userSchema = new mongoose.Schema({
 // Using the model "somewhere"
 var mongoose = require( 'mongoose' );
 var User = mongoose.model("User");
-
+```
 Models are fancy constructors compiled from our Schema definitions. Instances of these models represent documents which can be saved and retrieved from our database. All document creation and retrieval from the database is handled by these models.
-
+```javascript
 var schema = new mongoose.Schema({ name: 'string', size: 'string' });
 var Tank = mongoose.model('Tank', schema);
-
+```
 Documents are instances of our model. Creating them and saving to the database is easy
 
 #### Explain, and demonstrate, using relevant examples, the strategy for querying MongoDB (all CRUD operations).
@@ -69,6 +69,7 @@ db.products.remove({ quantity: { $gt: 20 } },
 #### Explain about indexes in MongoDB, how to create them, and demonstrate how you have used them.
 Indexes helps optimizing queries. A 2dsphere index supports queries that calculate geometries on an earth-like sphere (coordinates). 2dsphere index supports all MongoDB geospatial queries: queries for inclusion, intersection and proximity.
 You can use it for a mobile app, where you can update a map with all Your friends location online, based on their indexes(using them as 2-D spheres).
+```javascript
 db.airports.insert({
     "name" : "John F Kennedy",
     "type" : "International",
@@ -77,7 +78,7 @@ db.airports.insert({
       "type" : "Point",
       "coordinates" : [ -73.778889, 40.639722 ]
     }})
-
+```
 
 #### Explain, using your own code examples, how you have used some of MongoDB's "special" indexes like TTL and 2dsphere.
 TTL indexes are special single-field indexes that MongoDB can use to automatically remove documents from a collection after a certain amount of time.
@@ -97,13 +98,14 @@ Mongoose is schema less. We can have all sort of fields in a document in a colle
 { name : “Joe”, age : 30, interests : ‘football’ }
 { name : “Kate”, age : 25 }
 Everything in Mongoose starts with a Schema. Each schema maps to a MongoDB collection and defines the shape of the documents within that collection.
+```javascript
 var userSchema = new mongoose.Schema({
   username: String,
   email: {type: String, unique:true},
   created: { type: Date, default: Date.now },
   modified: Date,
 });
-
+```
 #### Explain the benefits from using Mongoose, and demonstrate, using your own code, an example involving all CRUD operations.
 
 #### Explain how redis "fits" into the NoSQL world, and provide an example of how you have used it.
