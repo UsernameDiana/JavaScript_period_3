@@ -1,8 +1,4 @@
 var express = require('express');
-let mongoose = require("mongoose");
-// To accept data via POST or PUT, add another package called body-parser.
-// npm install body-parser --save
-var bodyParser = require('body-parser');
 let router = require("express").Router();
 var jokesFacade = require('../models/Jokes');
 
@@ -23,10 +19,9 @@ router.get("/api/jokes/:id ", function (req, res, next){
   jokesFacade.findJoke();
 });
 
-//POST:   /api/jokes/       Create a new Joke
+//POST:   /api/jokes/       Add a new Joke
 router.post("/api/jokes/", function (req, res, next){
-var joke = new jokesFacade();
-  joke = "hahaha";
+res.ad
 });
 
 //PUT:    /api/jokes/:id    Edit an existing Joke

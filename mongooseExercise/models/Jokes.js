@@ -1,6 +1,8 @@
 'use strict'
 let mongoose = require("mongoose");
 let Schema = mongoose.Schema;
+var connect = require("../db/mongooseConnect")
+
 
 var JokeSchema = new Schema( // define schema
     {
@@ -20,13 +22,10 @@ JokeSchema.pre('update', function (next) {
 // This will be façade to the database
 // function(err,data){..} data is joke or jokes depending on question
 function allJokes (callback) {
-
+var db = connect.JokeSchema
 };
 function findJoke (id, callback) {
-    JokeSchema
-    .where({"joke": "I intend to live forever, or die Klausen"})
-    .fetch()
-    .then
+
 };
 function addJoke (jokeToAdd, callback) {
     
