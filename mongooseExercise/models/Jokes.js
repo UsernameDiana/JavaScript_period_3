@@ -1,6 +1,7 @@
 'use strict'
 var connection = require("../db/db");
 var db = connection.get();  //Get it like this
+
 let mongoose = require("mongoose");
 let Schema = mongoose.Schema;
 
