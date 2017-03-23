@@ -34,9 +34,6 @@ function editJoke (jokeToEdit, callback) { };
 function deleteJoke (id, callback) { };
 exports.randomJoke = function randomJoke(callback) { };
 
-// Export the mOngoose model
-module.exports = mongoose.model('Joke', JokeSchema);
-
 // exporting functions for use in api/api.js
 module.exports = {
 allJokes: allJokes,
