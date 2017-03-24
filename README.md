@@ -3,18 +3,21 @@ MEAN application with NoSQL, MongoDB, Mongoose and ExpressJS
 
 
 #### Explain, generally, what is meant by a NoSQL database.
-Its an umbrella of new databases, that don't use single SQL schemas. NoSQL won't replace relational DB, just replaces relation DB in some areas, where the DB has to be on different clusters. If there is a large amount of data with a lot of users, NoSQL is meant for that. Stores data in binary JSON.
+NoSQL an umbrella of new databases, it won't replace relational DB, just replaces relation DB in some areas, where the DB has to be on different clusters. If there is a large amount of data with a lot of users, NoSQL is meant for that.  
+Stores data in binary JSON.  
 NoSQL provides mechanism that does not use relations. In Relational DB we had to normalize DB, no redundant data, in NoSQL, we de-normalize.
+
 
 #### Explain Pros & Cons in using a NoSQL database like MongoDB as your data store, compared to a traditional Relational SQL Database like MySQL.
 Pros:
-Scales really well horizontal
-Simplicity of design and flexible
-Support large volumes of data by running well on clusters.
-Open source
-Schemaless - we don't need to ask CREATE TABLE with keys
+* Support large volumes of data by running well on clusters.
+* Open source
+* Scales really well horizontal
+* Simplicity of design and flexible
+* Schemaless - computer cluster consists of a set of loosely or tightly connected computers that work together so that, in many respects, they can be viewed as a single system.
 Cons:
-Does not guarantee ACID - atomic, consistent, isolation, durability
+* Does not guarantee ACID - atomic, consistent, isolation, durability
+
 
 ****The CAP theorem states:
 It's theoretically impossible to have all 3 requirements met, so a combination of 2 must be chosen and this is usually the deciding factor in what technology is used. 
