@@ -5,32 +5,40 @@ MEAN application with NoSQL, MongoDB, Mongoose and ExpressJS
 #### Explain, generally, what is meant by a NoSQL database.
 NoSQL an umbrella of new databases, it won't replace relational DB, just replaces relation DB in some areas, where the DB has to be on different clusters. If there is a large amount of data with a lot of users, NoSQL is meant for that.  
 Stores data in binary JSON.  
-NoSQL provides mechanism that does not use relations. In Relational DB we had to normalize DB, no redundant data, in NoSQL, we de-normalize.
+NoSQL provides mechanism that does not use relations. In Relational DB we had to normalize DB, no redundant data, in NoSQL, we de-normalize.  
+NoSQL approach includes:  
+* Scales really well horizontal
+* Simplicity of design and flexible
 
 
 #### Explain Pros & Cons in using a NoSQL database like MongoDB as your data store, compared to a traditional Relational SQL Database like MySQL.
 Pros:
 * Support large volumes of data by running well on clusters.
 * Open source
-* Scales really well horizontal
-* Simplicity of design and flexible
-* Schemaless - computer cluster consists of a set of loosely or tightly connected computers that work together so that, in many respects, they can be viewed as a single system.
+* Schemaless - computer cluster consists of a set of loosely or tightly connected computers that work together so that, in many respects, they can be viewed as a single system.  
+
 Cons:
 * Does not guarantee ACID - atomic, consistent, isolation, durability
+* NoSQL databases haven't been around here for so long, so it might have some bugs, poor documentation or unexpected behavior.
 
-
-****The CAP theorem states:
-It's theoretically impossible to have all 3 requirements met, so a combination of 2 must be chosen and this is usually the deciding factor in what technology is used. 
-Consistency
-All the servers in the system will have the same data so anyone using the system will get the same copy regardless of which server answers their request.
-Availability
-The system will always respond to a request (even if it's not the latest data or consistent across the system or just a message saying the system isn't working).
-Partition Tolerance
+#### The CAP theorem states:
+It's theoretically impossible to have all 3 requirements met, so a combination of 2 must be chosen and this is usually the deciding factor in what technology is used.  
+Consistency. 
+All the servers in the system will have the same data so anyone using the system will get the same copy regardless of which server answers their request.  
+Availability. 
+The system will always respond to a request (even if it's not the latest data or consistent across the system or just a message saying the system isn't working).  
+Partition Tolerance. 
 The system continues to operate as a whole even if individual servers fail or can't be reached.
 
 #### Explain how databases like MongoDB and redis would be classified in the NoSQL world.
-Redis is a bit like a map, that can map data (session objects), Key-value store, one of the fastest DB. Redis can handle lifetime of an object (we can set it up to 30min or whatever), like session object.
-MongoDB is a documentDB, MongoDB stores all data in documents, that are stored in a binary json (BSON). MongoDB documents are composed of field-and-value pairs and have the following structure. It is really fast to fetch data.
+* Redis. 
+Redis is a bit like a map, that can map data (session objects), Key-value store, one of the fastest DB. Redis can handle lifetime of an object (we can set it up to 30min or whatever), like session object.  
+It is an open source, in-memory data structure store, used as database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs and geospatial indexes with radius queries. Basically key/value storage. Redis typically holds the whole dataset in memory, and saves to disk every two seconds.  
+
+* MongoDB. 
+Is a document oriented database. Documents are independent units which makes performance better (data is read contiguously off disk) and makes it easier to distribute data across multiple servers while preserving its locality.  
+Application logic is easier to write. No need to translate between objects in your application and SQL queries, you can just turn the object model directly into a document. (sure, but you have ORM with SQL). 
+Unstructured data can be stored easily, since a document contains whatever keys and values the application logic requires.
 
 #### Explain reasons to add a layer like Mongoose, on top on of a schema-less database like MongoDB.
 Mongoose is an object modeling tool for MongoDB and Node.js, somehow similar to a ORM tool. Mongoose provides a straight-forward, schema-based solution to modeling your application data. Includes: schemas, type casting (String, boolean, etc), validation, query build-in, domain logic (middleware).
