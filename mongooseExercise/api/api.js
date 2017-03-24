@@ -1,36 +1,64 @@
-var express = require('express');
 let router = require("express").Router();
-var jokesFacade = require('../models/Jokes');
+var Jokes = require('../models/Jokes');
 
-// Create our Express application
-// var app = express();
+//router.get("/", (req, res) => {
+//  res.json({ msg: "Hello World" });
+//});
 
-router.get("/", (req, res) => {
-  res.json({ msg: "Hello World" });
+//Get a List of all Jokes
+router.get("/jokes", function (req, res, next) {
+  list = {};
+  Jokes.find(list, function (err, data) {
+    if (!err) {
+      res.json(data);
+    }
+    else {
+      res.json({ msg: "error!" })
+    }
+  })
 });
 
-//GET:    /api/jokes        Get a List of all Jokes
-router.get("/api/jokes", function (req, res, next){
-jokesFacade.allJokes();
+//Get an existing Joke by id
+router.get("/jokes/:id ", function (req, res, next) {
+  let jokeId = req.params.id;
+  Jokes.findById(jokeId, function (err, data) {
+    if (!err) {
+      res.json(data);
+    } else {
+      res.json({ msg: "error!" });
+    }
+  })
 });
 
-//GET:    /api/jokes/:id    Get an existing Joke by id
-router.get("/api/jokes/:id ", function (req, res, next){
-  jokesFacade.findJoke();
+//POST: Add a new Joke---------------------------TODO
+router.post("/jokes", function (req, res, next) {
+  let newJoke = req.body.joke;
+  Jokes.add(newJoke, function (err, data) {
+    if (!err) {
+      res.send(newJoke);
+    } else {
+      res.json({ msg: "error!" });
+    }
+  })
 });
 
-//POST:   /api/jokes/       Add a new Joke
-router.post("/api/jokes/", function (req, res, next){
-res.ad
-});
-
-//PUT:    /api/jokes/:id    Edit an existing Joke
-router.put("/api/jokes/:id ", function (req, res, next){
+//Edit an existing Joke-------------------------------TODO
+router.put("/jokes/:id ", function (req, res, next) {
 
 });
-//DELETE: /api/jokes/:id    Delete an existing Joke
-router.delete("/api/jokes/:id", function (req, res, next){
-  jokesFacade.deleteJoke();
+
+//Delete an existing Joke
+router.delete("/jokes/:id", function (req, res, next) {
+  let jokeId = req.params.id;
+  Jokes.deleteById(jokeId, function (err, data) {
+    if (!err) {
+      res.status(204);
+      res.send(data);
+    } else {
+      res.json({ msg: "error!" });
+    }
+  })
 });
+
 
 module.exports = router;
